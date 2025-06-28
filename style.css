@@ -186,7 +186,7 @@ header {
 
 .card-icons {
   position: absolute;
-  bottom: 15px;
+  bottom: 30px;
   width: 100%;
   display: flex;
   justify-content: space-around;
