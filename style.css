@@ -135,6 +135,7 @@ header {
   width: 100%;
   max-width: 400px;
   height: 520px;
+  margin-top:0px;
 }
 .card video {
   width: 100%;
@@ -175,7 +176,9 @@ header {
 .card-content h4 {
   margin-bottom: 0.3rem;
 }
-
+.card-content h3{
+  color:var(--bg);
+}
 .card-content p {
   font-size: 0.9rem;
   color: #555;
@@ -316,6 +319,7 @@ header {
 
   .swipe-deck {
     max-width: 450px;
+
   }
 
   .event-details-area .card {
