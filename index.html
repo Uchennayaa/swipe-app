@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swipe Events</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="js/events.js"></script>
+  <script defer src="js/app.js"></script>
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <h1>Swi<span>pe</span></h1>
+      <div class="search-section">
+        <select id="filter-type">
+          <option value="title">Title</option>
+          <option value="location">Location</option>
+          <option value="category">Category</option>
+        </select>
+        <input type="text" id="search-bar" placeholder="Search events..." />
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar left">
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="discover.html"><i class="fas fa-compass"></i> Discover</a></li>
+          <li><a href="addevent.html"><i class="fas fa-plus"></i> Add Event</a></li>
+          <li><a href="myevent.html"><i class="fas fa-calendar-check"></i> MyEvents</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="swipe-area">
+      <div class="swipe-deck"></div>
+    </main>
+
+    <aside class="sidebar right">
+      <h3>Saved Events</h3>
+      <ul id="saved-events"></ul>
+    </aside>
+  </div>
+  
+  <div class="bottom-nav">
+    <button><a href="index.html"><i class="fas fa-home"></i></a></button>
+    <button><a href="discover.html"><i class="fas fa-search"></i></a></button>
+    <button><a href="addevent.html"><i class="fas fa-plus"></i></a></button>
+    <button><a href="myevent.html"><i class="fas fa-calendar-check"></i></a></button>
+    <button><a href="profile.html"><i class="fas fa-user"></i></a></button>
+  </div>
+</body>
+</html>

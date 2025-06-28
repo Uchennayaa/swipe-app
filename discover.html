@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discover - Trending Gists</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="top-bar">
+      <h1>Swi<span>pe</span></h1>
+      <div class="search-section">
+        <select id="categoryFilter">
+          <option value="">All</option>
+          <option value="Music">Music</option>
+          <option value="Tech">Tech</option>
+          <option value="Food">Food</option>
+          <option value="Trending">Trending</option>
+        </select>
+        <input type="text" id="searchInput" placeholder="Search gist..." />
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar left">
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="discover.html"><i class="fas fa-compass"></i> Discover</a></li>
+          <li><a href="addevent.html"><i class="fas fa-plus"></i> Add Event</a></li>
+          <li><a href="myevent.html"><i class="fas fa-calendar-check"></i> MyEvents</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content blog-feed" id="blogFeed"></main>
+
+    <aside class="sidebar right">
+      <h3>Popular Tags</h3>
+      <ul>
+        <li>#Lagos</li>
+        <li>#Music</li>
+        <li>#Tech</li>
+        <li>#Weekend</li>
+      </ul>
+    </aside>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div class="bottom-nav">
+    <button><a href="index.html"><i class="fas fa-home"></i></a></button>
+    <button><a href="discover.html"><i class="fas fa-search"></i></a></button>
+    <button><a href="addevent.html"><i class="fas fa-plus"></i></a></button>
+    <button><a href="myevent.html"><i class="fas fa-calendar-check"></i></a></button>
+    <button><a href="profile.html"><i class="fas fa-user"></i></a></button>
+  </div>
+
+  <script src="js/blog.js"></script>
+  <script>
+    const blogFeed = document.getElementById("blogFeed");
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilter = document.getElementById("categoryFilter");
+
+    function renderBlogPosts(posts) {
+      blogFeed.innerHTML = "";
+      posts.forEach(post => {
+        blogFeed.innerHTML += `
+          <div class="blog-card glassy">
+            <img src="${post.image}" alt="${post.title}">
+            <div class="blog-info">
+              <h2>${post.title}</h2>
+              <p class="meta">${post.category} • ${post.date}</p>
+              <p class="excerpt">${post.excerpt}</p>
+              <a href="blog.html?id=${post.id}" class="read-more">Read More</a>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    function filterPosts() {
+      const search = searchInput.value.toLowerCase();
+      const category = categoryFilter.value;
+      const filtered = blogPosts.filter(post =>
+        (category === "" || post.category === category) &&
+        post.title.toLowerCase().includes(search)
+      );
+      renderBlogPosts(filtered);
+    }
+
+    searchInput.addEventListener("input", filterPosts);
+    categoryFilter.addEventListener("change", filterPosts);
+
+    renderBlogPosts(blogPosts);
+  </script>
+</body>
+</html>

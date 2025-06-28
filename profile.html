@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="top-bar">
+      <h1>Swi<span>pe</span></h1>
+      <h2>User Profile</h2>
+    </div>
+  </header>
+
+  <div class="container-1">
+    <!-- Sidebar -->
+    <aside class="sidebar left">
+      <nav>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="discover.html"><i class="fas fa-compass"></i> Discover</a></li>
+          <li><a href="addevent.html"><i class="fas fa-plus"></i> Add Event</a></li>
+          <li><a href="myevent.html"><i class="fas fa-calendar-check"></i> MyEvents</a></li>
+          <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="profile-card glassy">
+        <img src="https://i.imgur.com/1Q9Z1Zm.png" alt="Profile Picture" class="profile-pic">
+        <h2>Ada Ure</h2>
+        <p>Frontend Developer · Lagos</p>
+        <p>"Loves building clean, modern interfaces 💻✨"</p>
+
+        <div class="profile-stats">
+          <div><strong id="savedCount">0</strong><br>Saved Events</div>
+          <div><strong>12</strong><br>Events Attended</div>
+          <div><strong>5</strong><br>Shared</div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="sidebar right">
+      <h3>About Swi<span>pe</span></h3>
+      <p>Discover and save exciting events happening around you. Stay informed, never miss out again!</p>
+    </aside>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <button onclick="location.href='index.html'"><i class="fas fa-home"></i></button>
+    <button onclick="location.href='discover.html'"><i class="fas fa-search"></i></button>
+    <button onclick="location.href='addevent.html'"><i class="fas fa-plus"></i></button>
+    <button onclick="location.href='myevent.html'"><i class="fas fa-calendar-check"></i></button>
+    <button onclick="location.href='profile.html'"><i class="fas fa-user"></i></button>
+  </div>
+
+  <script>
+    // Set saved count dynamically
+    const saved = JSON.parse(localStorage.getItem("savedEvents")) || [];
+    document.getElementById("savedCount").textContent = saved.length;
+  </script>
+
+</body>
+</html>

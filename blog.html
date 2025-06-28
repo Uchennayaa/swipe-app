@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gist Detail</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container full-post">
+    <a href="discover.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Discover</a>
+    <article id="blogPost" class="glassy blog-detail"></article>
+  </div>
+
+  <script src="js/blog.js"></script>
+  <script>
+    const postId = new URLSearchParams(window.location.search).get("id");
+    const blogPost = blogPosts.find(post => post.id == postId);
+    const blogContainer = document.getElementById("blogPost");
+
+    if (blogPost) {
+      blogContainer.innerHTML = `
+        <h1>${blogPost.title}</h1>
+        <p class="meta">${blogPost.category} • ${blogPost.date}</p>
+        <img src="${blogPost.image}" alt="${blogPost.title}" />
+        <div class="content">${blogPost.content}</div>
+      `;
+    } else {
+      blogContainer.innerHTML = "<p>Post not found.</p>";
+    }
+  </script>
+
+</body>
+</html>
